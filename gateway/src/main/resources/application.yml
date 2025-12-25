@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: players
+              uri: lb://PLAYERS
+              predicates:
+                - Path=/api/players/**
+            - id: stats
+              uri: lb://AI-STATS
+              predicates:
+                - Path=/api/stats/**
