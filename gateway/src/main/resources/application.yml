@@ -14,3 +14,8 @@ spring:
               uri: lb://AI-STATS
               predicates:
                 - Path=/api/stats/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8090/realms/Cricketers-Stats
