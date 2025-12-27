@@ -1,0 +1,38 @@
+<div class="mat-elevation-z8" style="margin-top: 5px;">
+  <mat-form-field>
+    <mat-label>Select Country</mat-label>
+    <mat-select (selectionChange)="onSelect($event)">
+      @for (country of countryList; track country.id) {
+      <mat-option value="{{ country.id }}">{{ country.name }}</mat-option>
+      }
+
+    </mat-select>
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i +1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Acion </th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="onViewStats(element.id, element.name)" matIconButton aria-label="View Stats" matTooltip="View Stats">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of players">
+  </mat-paginator>
+</div>
