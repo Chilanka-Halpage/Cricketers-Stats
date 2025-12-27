@@ -15,7 +15,7 @@ public class StatController {
 
     private final GeminiService geminiService;
 
-    @GetMapping("/{playerId}")
+    @GetMapping("/players/{playerId}")
     public ResponseEntity<String> getPlayerStats(@PathVariable int playerId) {
         return ResponseEntity.ok(geminiService.getPlayerStats(playerId));
     }
