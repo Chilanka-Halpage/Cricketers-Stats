@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: file://${HOME}/Documents/MyProjects/Cricketers-Stats
+          uri: https://github.com/Chilanka-Halpage/Cricketers-Stats
           search-paths: configurations
 server:
   port: 8888

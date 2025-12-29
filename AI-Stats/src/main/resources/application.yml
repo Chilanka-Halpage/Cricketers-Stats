@@ -1,11 +1,7 @@
 spring:
   application:
     name: AI-Stats
+  config:
+    import: optional:configserver:http://localhost:8888
 server:
   port: 8082
-cricket:
-  stats:
-    baseurl: http://PLAYERS
-gemini:
-  uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent
-  key: ${GEMINI_API_KEY}
